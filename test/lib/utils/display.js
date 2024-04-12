@@ -5,7 +5,7 @@ const { inspect } = require('util')
 
 const mockDisplay = async (t, { mocks, load } = {}) => {
   const { Chalk } = await import('chalk')
-  const { log } = require('proc-log')
+  const { log, output } = require('proc-log')
   const logs = mockLogs()
   const Display = tmock(t, '{LIB}/utils/display', mocks)
   const display = new Display(logs.streams)
@@ -17,7 +17,7 @@ const mockDisplay = async (t, { mocks, load } = {}) => {
   })
   t.teardown(() => display.off())
   return {
-    display,
+    output,
     log,
     ...logs.logs,
   }
@@ -75,7 +75,7 @@ t.test('handles log throwing', async (t) => {
 })
 
 t.test('Display.clean', async (t) => {
-  const { display, outputs, clearOutput } = await mockDisplay(t)
+  const { output, outputs, clearOutput } = await mockDisplay(t)
 
   class CustomObj {
     #inspected
@@ -136,7 +136,7 @@ t.test('Display.clean', async (t) => {
   ]
 
   for (const [dirty, clean] of tests) {
-    display.output(dirty)
+    output.standard(dirty)
     t.equal(outputs[0], clean)
     clearOutput()
   }

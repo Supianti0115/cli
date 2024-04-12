@@ -3,6 +3,7 @@ const fs = require('fs')
 const fsMiniPass = require('fs-minipass')
 const { join, resolve } = require('path')
 const EventEmitter = require('events')
+const { output } = require('proc-log')
 const { load: loadMockNpm } = require('../../fixtures/mock-npm')
 const mockGlobals = require('@npmcli/mock-globals')
 const { cleanCwd, cleanDate } = require('../../fixtures/clean-snapshot')
@@ -217,7 +218,7 @@ t.test('exit handler called - no npm with error without stack', async (t) => {
   t.match(errors, [/something happened/])
 })
 
-t.test('console.log output using --json', async (t) => {
+t.test('standard output using --json', async (t) => {
   const { exitHandler, outputs } = await mockExitHandler(t, {
     config: { json: true },
   })
@@ -239,13 +240,13 @@ t.test('console.log output using --json', async (t) => {
 })
 
 t.test('merges output buffers errors with --json', async (t) => {
-  const { exitHandler, outputs, npm } = await mockExitHandler(t, {
+  const { exitHandler, outputs } = await mockExitHandler(t, {
     config: { json: true },
   })
 
-  npm.outputBuffer({ output_data: 1 })
-  npm.outputBuffer(JSON.stringify({ more_data: 2 }))
-  npm.outputBuffer('not json, will be ignored')
+  output.buffer({ output_data: 1 })
+  output.buffer(JSON.stringify({ more_data: 2 }))
+  output.buffer('not json, will be ignored')
 
   await exitHandler(err('Error: EBADTHING Something happened'))
 
@@ -266,10 +267,10 @@ t.test('merges output buffers errors with --json', async (t) => {
 })
 
 t.test('output buffer without json', async (t) => {
-  const { exitHandler, outputs, npm, logs } = await mockExitHandler(t)
+  const { exitHandler, outputs, logs } = await mockExitHandler(t)
 
-  npm.outputBuffer('output_data')
-  npm.outputBuffer('more_data')
+  output.buffer('output_data')
+  output.buffer('more_data')
 
   await exitHandler(err('Error: EBADTHING Something happened'))
 
