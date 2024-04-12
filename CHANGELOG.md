@@ -1,5 +1,27 @@
 # Changelog
 
+## [10.6.0](https://github.com/npm/cli/compare/v10.5.2...v10.6.0) (2024-04-12)
+
+### Features
+
+* [`9622597`](https://github.com/npm/cli/commit/9622597399ec93224fddf90a9209a98dbcfd6b2f) [#7339](https://github.com/npm/cli/pull/7339) refactor terminal display (#7339) (@lukekarrys)
+
+### Bug Fixes
+
+* [`2a80dab`](https://github.com/npm/cli/commit/2a80dab2ed1feedf3cd3af8ff7f41846567b2fd3) [#7370](https://github.com/npm/cli/pull/7370) typo in `npm access` usage (#7370) (@mbtools)
+
+### Documentation
+
+* [`c16dd4e`](https://github.com/npm/cli/commit/c16dd4e46b58d6c4490284e6edc5c255862e322b) [#7367](https://github.com/npm/cli/pull/7367) Document that overrides only work in the root `package.json` (#7367) (@s100)
+
+### Dependencies
+
+* [workspace](https://github.com/npm/cli/releases/tag/arborist-v7.5.0): `@npmcli/arborist@7.5.0`
+* [workspace](https://github.com/npm/cli/releases/tag/libnpmdiff-v6.1.0): `libnpmdiff@6.1.0`
+* [workspace](https://github.com/npm/cli/releases/tag/libnpmexec-v7.1.0): `libnpmexec@7.1.0`
+* [workspace](https://github.com/npm/cli/releases/tag/libnpmfund-v5.0.8): `libnpmfund@5.0.8`
+* [workspace](https://github.com/npm/cli/releases/tag/libnpmpack-v6.0.10): `libnpmpack@6.0.10`
+
 ## [10.5.2](https://github.com/npm/cli/compare/v10.5.1...v10.5.2) (2024-04-10)
 
 ### Bug Fixes

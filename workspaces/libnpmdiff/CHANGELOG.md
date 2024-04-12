@@ -1,5 +1,15 @@
 # Changelog
 
+## [6.1.0](https://github.com/npm/cli/compare/libnpmdiff-v6.0.9...libnpmdiff-v6.1.0) (2024-04-12)
+
+### Features
+
+* [`9622597`](https://github.com/npm/cli/commit/9622597399ec93224fddf90a9209a98dbcfd6b2f) [#7339](https://github.com/npm/cli/pull/7339) refactor terminal display (#7339) (@lukekarrys)
+
+### Dependencies
+
+* [workspace](https://github.com/npm/cli/releases/tag/arborist-v7.5.0): `@npmcli/arborist@7.5.0`
+
 ## [6.0.9](https://github.com/npm/cli/compare/libnpmdiff-v6.0.8...libnpmdiff-v6.0.9) (2024-04-10)
 
 ### Dependencies

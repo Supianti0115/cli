@@ -1,5 +1,11 @@
 # Changelog
 
+## [7.5.0](https://github.com/npm/cli/compare/arborist-v7.4.2...arborist-v7.5.0) (2024-04-12)
+
+### Features
+
+* [`9622597`](https://github.com/npm/cli/commit/9622597399ec93224fddf90a9209a98dbcfd6b2f) [#7339](https://github.com/npm/cli/pull/7339) refactor terminal display (#7339) (@lukekarrys)
+
 ## [7.4.2](https://github.com/npm/cli/compare/arborist-v7.4.1...arborist-v7.4.2) (2024-04-10)
 
 ### Bug Fixes

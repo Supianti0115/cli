@@ -1,5 +1,15 @@
 # Changelog
 
+## [7.1.0](https://github.com/npm/cli/compare/libnpmexec-v7.0.10...libnpmexec-v7.1.0) (2024-04-12)
+
+### Features
+
+* [`9622597`](https://github.com/npm/cli/commit/9622597399ec93224fddf90a9209a98dbcfd6b2f) [#7339](https://github.com/npm/cli/pull/7339) refactor terminal display (#7339) (@lukekarrys)
+
+### Dependencies
+
+* [workspace](https://github.com/npm/cli/releases/tag/arborist-v7.5.0): `@npmcli/arborist@7.5.0`
+
 ## [7.0.10](https://github.com/npm/cli/compare/libnpmexec-v7.0.9...libnpmexec-v7.0.10) (2024-04-10)
 
 ### Dependencies
