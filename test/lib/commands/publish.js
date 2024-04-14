@@ -83,6 +83,7 @@ t.test('re-loads publishConfig.registry if added during script process', async t
   const { joinedOutput, npm } = await loadMockNpm(t, {
     config: {
       [`${alternateRegistry.slice(6)}/:_authToken`]: 'test-other-token',
+      // Keep output from leaking into tap logs for readability
       'foreground-scripts': false,
     },
     prefixDir: {
@@ -137,6 +138,7 @@ t.test('prioritize CLI flags over publishConfig', async t => {
   const { joinedOutput, npm } = await loadMockNpm(t, {
     config: {
       [`${alternateRegistry.slice(6)}/:_authToken`]: 'test-other-token',
+      // Keep output from leaking into tap logs for readability
       'foreground-scripts': false,
     },
     prefixDir: {

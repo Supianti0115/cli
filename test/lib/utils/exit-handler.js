@@ -53,7 +53,7 @@ mockGlobals(t, {
 }, { replace: true })
 
 const mockExitHandler = async (t, { config, mocks, files, ...opts } = {}) => {
-  const consoleErrors = []
+  const errors = []
 
   const { npm, logMocks, ...rest } = await loadMockNpm(t, {
     ...opts,
@@ -68,7 +68,7 @@ const mockExitHandler = async (t, { config, mocks, files, ...opts } = {}) => {
       ...(typeof config === 'function' ? config(dirs) : config),
     }),
     globals: {
-      'console.error': (err) => consoleErrors.push(err),
+      'console.error': (err) => errors.push(err),
     },
   })
 
@@ -105,7 +105,7 @@ const mockExitHandler = async (t, { config, mocks, files, ...opts } = {}) => {
     ...rest,
     errors: () => [
       ...rest.outputErrors,
-      ...consoleErrors,
+      ...errors,
     ],
     npm,
     // Make it async to make testing ergonomics a little easier so we dont need
@@ -601,9 +601,7 @@ t.test('call exitHandler with no error', async (t) => {
 })
 
 t.test('defaults to log error msg if stack is missing when unloaded', async (t) => {
-  const { exitHandler, logs, errors } = await mockExitHandler(t, {
-    load: false,
-  })
+  const { exitHandler, logs, errors } = await mockExitHandler(t, { load: false })
 
   await exitHandler(err('Error with no stack', { code: 'ENOSTACK', errno: 127 }, true))
   t.equal(process.exitCode, 127)
